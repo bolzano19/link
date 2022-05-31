@@ -1,0 +1,26 @@
+<h1>
+  <%= @course.course%>
+</h1>
+<p>
+  <%= @course.description%>
+</p>
+<p>
+  <b>Початковий вік - </b><%= @course.age_start%>
+</p>
+<p>
+  <b>Кінцевий вік - </b><%= @course.age_finish%>
+</p>
+<p>
+  <b>Кількість занять - </b><%= @course.number_classes%>
+</p>
+<p>
+  <b>Ціна - </b><%= @course.price%>
+</p>
+<p>
+  <b>Активний - </b>
+  <%if @course.active%>
+    <b>Так</b>
+  <%else%>
+    <b>Ні</b>
+  <%end%>
+</p>
