@@ -1,10 +1,10 @@
 <h1>Наші курси</h1>
 
 <div>
-  <%@courses.each do |course|%>
+  <% @courses.each do |course| %>
     <h2>
-      <a href="/courses/<%= course.id%>">
-        <%= course.course%>
+      <%= link_to course.course, course %>
     </h2>
-  <%end%>
+  <% end %>
 </div>
+<%= link_to "Новий Курс", new_course_path %>

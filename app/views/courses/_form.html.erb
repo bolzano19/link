@@ -1,0 +1,42 @@
+<%=form_for course do |f| %>
+  <p>
+    Назва курсу<br>
+    <%=f.text_field :course %>
+    <% course.errors.full_messages_for(:course).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+  </p>
+  <p>
+    Опис курсу<br>
+    <%=f.text_area :description %>
+    <% course.errors.full_messages_for(:description).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+  </p>
+  <p>
+    Вік початок<br>
+    <%= f.number_field :age_start, in: 6..18 %>
+  </p>
+  <p>
+    Вік закінчення<br>
+    <%= f.number_field :age_finish, in: 6..18 %>
+  </p>
+  <p>
+    Кількість занять<br>
+    <%= f.number_field :number_classes, in: 1..100 %>
+  </p>
+  <p>
+    Вартість<br>
+    <%= f.number_field :price, in: 1000..10000, step: 100 %>
+  </p>
+  <p>
+    Статус<br>
+    <%= f.radio_button :active, true %>
+    <%= f.label :active_course, "Активний" %>
+    <%= f.radio_button :active, false %>
+    <%= f.label :inactive_course, "Неактивний" %>
+  </p>
+  <p>
+    <%=f.submit %>
+  </p>
+<%end %>
