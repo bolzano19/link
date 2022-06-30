@@ -1,10 +1,28 @@
-<h1>Наші курси</h1>
+<h1 class="title">Наші курси</h1>
 
-<div>
-  <% @courses.each do |course| %>
-    <h2>
-      <%= link_to course.course, course %>
-    </h2>
-  <% end %>
+<div class="table-container">
+  <table class="table">
+    <!-- Your table content -->
+    <thead>
+    <tr>
+      <th><abbr title="Number">№ з.п.</abbr></th>
+      <th><abbr title="Course_name">Назва</abbr></th>
+      <th><abbr title="Active">Активний</abbr></th>
+      <th><abbr title="Edit">Змінити</abbr></th>
+      <th><abbr title="Activation">Активувати</abbr></th>
+    </tr>
+    </thead>
+    <% @courses.each do |course| %>
+      <tr>
+        <th><%= course.id %></th>
+        <th> <%= link_to course.course, course %></th>
+        <th><%= active_str (course) %></th>
+        <th><button class="button is-dark"><%= link_to "Змінити", edit_course_path(course) %></button></th>
+        <th><button class="button is-dark">Активувати</button></th>
+      </tr>
+    <% end %>
+  </table>
 </div>
-<%= link_to "Новий Курс", new_course_path %>
+<div class="buttons">
+  <button class="button is-medium is-rounded"><%= link_to "Додати курс", new_course_path %></button>
+</div>

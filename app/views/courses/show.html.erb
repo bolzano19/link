@@ -1,7 +1,7 @@
-<h1>
+<h1 class="title">
   <%= @course.course %>
 </h1>
-<p>
+<p class="textarea">
   <%= @course.description %>
 </p>
 <p>
@@ -26,7 +26,6 @@
 <li>
   <%= link_to "Destroy", course_path(@course), method: :delete, data: {confirm: "A you sure?"} %>
 </li>
-<!--  <li><%#= link_to "Домашня сторінка", root_path %></li>-->
 </ul>
 <div class="buttons">
   <button class="button is-primary is-light"><%= link_to "Домашня сторінка", root_path %></button>
