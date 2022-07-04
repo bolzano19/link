@@ -1,6 +1,6 @@
-<h1 class="title">Наші курси</h1>
+<h1 class="title has-text-centered">Наші курси</h1>
 
-<div class="table-container">
+<div class="table-container px-6">
   <table class="table">
     <!-- Your table content -->
     <thead>
@@ -12,9 +12,9 @@
       <th><abbr title="Activation">Активувати</abbr></th>
     </tr>
     </thead>
-    <% @courses.each do |course| %>
+    <% @courses.each_with_index do | course, index| %>
       <tr>
-        <th><%= course.id %></th>
+        <th><%= index+1 %></th>
         <th> <%= link_to course.course, course %></th>
         <th><%= active_str (course) %></th>
         <th><button class="button is-dark"><%= link_to "Змінити", edit_course_path(course) %></button></th>
@@ -23,6 +23,6 @@
     <% end %>
   </table>
 </div>
-<div class="buttons">
+<div class="buttons is-paddingless: px-6">
   <button class="button is-medium is-rounded"><%= link_to "Додати курс", new_course_path %></button>
 </div>
