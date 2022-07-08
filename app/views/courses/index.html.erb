@@ -18,11 +18,11 @@
         <th> <%= link_to course.course, course %></th>
         <th><%= active_str (course) %></th>
         <th><button class="button is-dark"><%= link_to "Змінити", edit_course_path(course) %></button></th>
-        <th><button class="button is-dark">Активувати</button></th>
+        <th><button class="button is-dark"><%= button_active (course) %></button></th>
       </tr>
     <% end %>
   </table>
 </div>
-<div class="buttons is-paddingless: px-6">
+<div class="buttons px-6">
   <button class="button is-medium is-rounded"><%= link_to "Додати курс", new_course_path %></button>
 </div>

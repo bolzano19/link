@@ -1,43 +1,118 @@
 <%=form_for course do |f| %>
-  <p>
-    Назва курсу<br>
-    <%=f.text_field :course %>
-    <% course.errors.full_messages_for(:course).each do |message| %>
-    <div><%= message %></div>
-    <% end %>
-  </p>
-  <p>
-    Опис курсу<br>
-    <%=f.text_area :description %>
-    <% course.errors.full_messages_for(:description).each do |message| %>
-    <div><%= message %></div>
-    <% end %>
-  </p>
-  <p>
-    Вік початок<br>
-    <%= f.number_field :age_start, in: 6..18 %>
-  </p>
-  <p>
-    Вік закінчення<br>
-    <%= f.number_field :age_finish, in: 6..18 %>
-  </p>
-  <p>
-    Кількість занять<br>
-    <%= f.number_field :number_classes, in: 1..100 %>
-  </p>
-  <p>
-    Вартість<br>
-    <%= f.number_field :price, in: 1000..10000, step: 100 %>
-  </p>
-  <p>
-    Статус<br>
-    <%= f.radio_button :active, true %>
-    <%= f.label :active_course, "Активний" %>
-    <%= f.radio_button :active, false %>
-    <%= f.label :inactive_course, "Неактивний" %>
-  </p>
-  <p>
-    <%=f.submit %>
-  </p>
-<%end %>
+  <div class="columns">
+    <div class="column">
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Назва курсу</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%=f.text_field :course, class: 'input' %>
+          <% course.errors.full_messages_for(:course).each do |message| %>
+            <%= message %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Опис курсу</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= f.text_area :description, class: 'textarea' %>
+            <% course.errors.full_messages_for(:description).each do |message| %>
+            <%= message %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Вік початок</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= f.number_field :age_start, in: 6..18, class: 'input' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Вік закінчення</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= f.number_field :age_finish, in: 6..18, class: 'input' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Кількість занять</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= f.number_field :number_classes, in: 1..100, class: 'input' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Вартість</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= f.number_field :price, in: 1000..10000, step: 100, class: 'input' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="field is-horizontal px-6">
+    <div class="field-body">
+      <label class="label">Статус</label>
+
+    <div class="control px-6">
+      <%= f.radio_button :active, true %>
+      <%= f.label :active_course, "Активний" %>
+
+      <%= f.radio_button :active, false %>
+      <%= f.label :inactive_course, "Неактивний" %>
+    </div>
+    </div>
+  </div>
+
+    <div class="px-6">
+      <%=f.submit %>
+    </div>
+
+<div class="link px-6">
 <%= link_to "Домашня сторінка", root_path %>
+</div>
+</div>
+</div>
+<%end %>
+
+
