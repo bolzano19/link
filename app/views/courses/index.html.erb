@@ -9,7 +9,7 @@
       <th><abbr title="Course_name">Назва</abbr></th>
       <th><abbr title="Active">Активний</abbr></th>
       <th><abbr title="Edit">Змінити</abbr></th>
-      <th><abbr title="Activation">Активувати</abbr></th>
+      <th><abbr title="Activation">Активувати/Деактивувати</abbr></th>
     </tr>
     </thead>
     <% @courses.each_with_index do | course, index| %>
@@ -18,11 +18,20 @@
         <th> <%= link_to course.course, course %></th>
         <th><%= active_str (course) %></th>
         <th><button class="button is-dark"><%= link_to "Змінити", edit_course_path(course) %></button></th>
-        <th><button class="button is-dark"><%= button_active (course) %></button></th>
+        <th>
+         <%= form_for course do |f| %>
+          <%= f.hidden_field :active, value: !course.active %>
+            <%= hidden_field_tag :redirect, :index %>
+            <%= f.submit button_active(course), class: 'button'%>
+            <% end %>
+        </th>
       </tr>
     <% end %>
   </table>
 </div>
+
 <div class="buttons px-6">
+
   <button class="button is-medium is-rounded"><%= link_to "Додати курс", new_course_path %></button>
+
 </div>
