@@ -42,7 +42,7 @@
     <div class="field-body">
       <div class="field">
         <div class="control">
-          <%= f.number_field :age_start, in: 6..18, class: 'input' %>
+          <%= f.select :age_start, [*8..15], class: 'input' %>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
     <div class="field-body">
       <div class="field">
         <div class="control">
-          <%= f.number_field :age_finish, in: 6..18, class: 'input' %>
+          <%= f.select :age_finish, [*8..15], class: 'input' %>
         </div>
       </div>
     </div>
@@ -70,7 +70,7 @@
     <div class="field-body">
       <div class="field">
         <div class="control">
-          <%= f.number_field :number_classes, in: 1..100, class: 'input' %>
+          <%= f.select :number_classes, [*10..100], class: 'input' %>
         </div>
       </div>
     </div>
@@ -83,36 +83,36 @@
     <div class="field-body">
       <div class="field">
         <div class="control">
-          <%= f.number_field :price, in: 1000..10000, step: 100, class: 'input' %>
+          <%= f.select :price, (1000..10000).step(100).to_a, class: 'input' %>
         </div>
       </div>
     </div>
   </div>
 
 
-  <div class="field is-horizontal px-6">
-    <div class="field-body">
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
       <label class="label">Статус</label>
-
-    <div class="control px-6">
-      <%= f.radio_button :active, true %>
-      <%= f.label :active_course, "Активний" %>
-
-      <%= f.radio_button :active, false %>
-      <%= f.label :inactive_course, "Неактивний" %>
     </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= f.select :active, [true, false], class: 'input' %>
+        </div>
+      </div>
     </div>
   </div>
-
-    <div class="px-6">
-      <%=f.submit %>
-    </div>
+      <div class="field is-horizontal">
+        <div class="field is-normal">
+          <%=f.submit %>
+        </div>
+      </div>
 
 <div class="link px-6">
 <%= link_to "Домашня сторінка", root_path %>
 </div>
-</div>
-</div>
+
 <%end %>
+</div>
 
-
+</div>
