@@ -21,15 +21,18 @@
   <b>Активний - </b>
   <%= active_str(@course) %>
 </p>
+<br/>
+  <div class="buttons">
+    <button class="button is-warning is-medium is-rounded"><%= link_to "Змінити", edit_course_path(@course) %></button>
+  </div>
+  <div class="buttons">
+    <button class="button is-danger is-medium is-rounded"><%= link_to "Видалити", course_path(@course), method: :delete, data: {confirm: "A you sure?"} %></button>
+  </div>
 
-<ul>
-  <li><%= link_to "Edit", edit_course_path(@course) %></li>
-<li>
-  <%= link_to "Destroy", course_path(@course), method: :delete, data: {confirm: "A you sure?"} %>
-</li>
-</ul>
-<div class="buttons">
-  <button class="button is-primary is-light"><%= link_to "Домашня сторінка", root_path %></button>
-</div>
+
+
+  <div class="buttons">
+    <button class="button is-primary is-medium is-rounded"><%= link_to "Домашня сторінка", root_path %></button>
+  </div>
 </div>
 
